@@ -1,0 +1,335 @@
+{
+  "configuration" : { },
+  "description" : "You HRownik",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2025-10-14T16:55:22Z",
+  "model" : {
+    "people" : [ {
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "Employee",
+      "properties" : {
+        "structurizr.dsl.identifier" : "employee"
+      },
+      "relationships" : [ {
+        "description" : "Manages work duties using",
+        "destinationId" : "4",
+        "id" : "8",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Controls in-office presence using",
+        "destinationId" : "6",
+        "id" : "9",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "id" : "2",
+      "location" : "Unspecified",
+      "name" : "Manager",
+      "properties" : {
+        "structurizr.dsl.identifier" : "manager"
+      },
+      "relationships" : [ {
+        "description" : "Extends",
+        "destinationId" : "1",
+        "id" : "7",
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "id" : "3",
+      "location" : "Unspecified",
+      "name" : "Admin",
+      "properties" : {
+        "structurizr.dsl.identifier" : "admin"
+      },
+      "relationships" : [ {
+        "description" : "Administrates the system through",
+        "destinationId" : "4",
+        "id" : "10",
+        "sourceId" : "3",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "description" : "HRownik",
+      "documentation" : { },
+      "id" : "4",
+      "location" : "Unspecified",
+      "name" : "HiveR",
+      "properties" : {
+        "structurizr.dsl.identifier" : "hiver_system"
+      },
+      "relationships" : [ {
+        "description" : "Sends emails to users using",
+        "destinationId" : "5",
+        "id" : "11",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "description" : "Email and push notification handling.",
+      "documentation" : { },
+      "id" : "5",
+      "location" : "Unspecified",
+      "name" : "AWS SNS",
+      "properties" : {
+        "structurizr.dsl.identifier" : "aws_sns"
+      },
+      "relationships" : [ {
+        "description" : "Sends push notifications and emails to",
+        "destinationId" : "1",
+        "id" : "13",
+        "sourceId" : "5",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Sends emails to",
+        "destinationId" : "3",
+        "id" : "14",
+        "sourceId" : "5",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "description" : "Various IoT devices",
+      "documentation" : { },
+      "id" : "6",
+      "location" : "Unspecified",
+      "name" : "IoT",
+      "properties" : {
+        "structurizr.dsl.identifier" : "iot_devices"
+      },
+      "relationships" : [ {
+        "description" : "Notifies about in-office presence change",
+        "destinationId" : "4",
+        "id" : "12",
+        "sourceId" : "6",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Software System"
+    } ]
+  },
+  "name" : "HiveR",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlICJIaXZlUiIgIllvdSBIUm93bmlrIiB7CiAgICBtb2RlbCB7CiAgICAgICAgZW1wbG95ZWUgPSBwZXJzb24gIkVtcGxveWVlIgogICAgICAgIG1hbmFnZXIgPSBwZXJzb24gIk1hbmFnZXIiCiAgICAgICAgYWRtaW4gPSBwZXJzb24gIkFkbWluIgoKICAgICAgICBoaXZlcl9zeXN0ZW0gPSBzb2Z0d2FyZVN5c3RlbSAiSGl2ZVIiICJIUm93bmlrIgoKICAgICAgICBhd3Nfc25zID0gc29mdHdhcmVTeXN0ZW0gIkFXUyBTTlMiICJFbWFpbCBhbmQgcHVzaCBub3RpZmljYXRpb24gaGFuZGxpbmcuIgogICAgICAgIGlvdF9kZXZpY2VzID0gc29mdHdhcmVTeXN0ZW0gIklvVCIgIlZhcmlvdXMgSW9UIGRldmljZXMiCgogICAgICAgIC8vIEFjdG9ycwogICAgICAgIG1hbmFnZXIgLT4gZW1wbG95ZWUgIkV4dGVuZHMiCgogICAgICAgIC8vIFN5c3RlbXMKICAgICAgICBlbXBsb3llZSAtPiBoaXZlcl9zeXN0ZW0gIk1hbmFnZXMgd29yayBkdXRpZXMgdXNpbmciCiAgICAgICAgZW1wbG95ZWUgLT4gaW90X2RldmljZXMgIkNvbnRyb2xzIGluLW9mZmljZSBwcmVzZW5jZSB1c2luZyIKICAgICAgICBhZG1pbiAtPiBoaXZlcl9zeXN0ZW0gIkFkbWluaXN0cmF0ZXMgdGhlIHN5c3RlbSB0aHJvdWdoIgoKICAgICAgICBoaXZlcl9zeXN0ZW0gLT4gYXdzX3NucyAiU2VuZHMgZW1haWxzIHRvIHVzZXJzIHVzaW5nIgogICAgICAgIGlvdF9kZXZpY2VzIC0+IGhpdmVyX3N5c3RlbSAiTm90aWZpZXMgYWJvdXQgaW4tb2ZmaWNlIHByZXNlbmNlIGNoYW5nZSIKCiAgICAgICAgYXdzX3NucyAtPiBlbXBsb3llZSAiU2VuZHMgcHVzaCBub3RpZmljYXRpb25zIGFuZCBlbWFpbHMgdG8iCiAgICAgICAgYXdzX3NucyAtPiBhZG1pbiAiU2VuZHMgZW1haWxzIHRvIgoKCiAgICB9CgoKCi8vICAgIHZpZXdzIHsKLy8gICAgICAgIHN5c3RlbUNvbnRleHQgaGl2ZXJfc3lzdGVtICJEaWFncmFtMSIgewovLyAgICAgICAgICAgIGluY2x1ZGUgKgovLyAgICAgICAgfQovLyAgICB9Cn0="
+  },
+  "views" : {
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "SystemLandscape-001",
+      "metadataSymbols" : "SquareBrackets",
+      "styles" : { },
+      "terminology" : { }
+    },
+    "systemContextViews" : [ {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemContext-001",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "10"
+      }, {
+        "id" : "11"
+      }, {
+        "id" : "13"
+      }, {
+        "id" : "14"
+      }, {
+        "id" : "8"
+      } ],
+      "softwareSystemId" : "5"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemContext-002",
+      "order" : 3,
+      "relationships" : [ {
+        "id" : "10"
+      }, {
+        "id" : "11"
+      }, {
+        "id" : "12"
+      }, {
+        "id" : "13"
+      }, {
+        "id" : "14"
+      }, {
+        "id" : "8"
+      }, {
+        "id" : "9"
+      } ],
+      "softwareSystemId" : "4"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemContext-003",
+      "order" : 4,
+      "relationships" : [ {
+        "id" : "12"
+      }, {
+        "id" : "8"
+      }, {
+        "id" : "9"
+      } ],
+      "softwareSystemId" : "6"
+    } ],
+    "systemLandscapeViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "dimensions" : {
+        "height" : 3700,
+        "width" : 1760
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 431,
+        "y" : 765
+      }, {
+        "id" : "2",
+        "x" : 431,
+        "y" : 165
+      }, {
+        "id" : "3",
+        "x" : 769,
+        "y" : 3165
+      }, {
+        "id" : "4",
+        "x" : 431,
+        "y" : 1965
+      }, {
+        "id" : "5",
+        "x" : 1110,
+        "y" : 2565
+      }, {
+        "id" : "6",
+        "x" : 431,
+        "y" : 1365
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "generatedKey" : true,
+      "key" : "SystemLandscape-001",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "10"
+      }, {
+        "id" : "11"
+      }, {
+        "id" : "12"
+      }, {
+        "id" : "13",
+        "vertices" : [ {
+          "x" : 1031,
+          "y" : 1365
+        } ]
+      }, {
+        "id" : "14"
+      }, {
+        "id" : "7"
+      }, {
+        "id" : "8",
+        "vertices" : [ {
+          "x" : 281,
+          "y" : 1365
+        }, {
+          "x" : 281,
+          "y" : 1665
+        } ]
+      }, {
+        "id" : "9"
+      } ]
+    } ]
+  }
+}
