@@ -13,6 +13,7 @@ workspace "HiveR" "You HRownik" {
                     tags "Bus"
                 }
 
+                // Main
                 main = component "Main" {
                     technology "NestJS"
                 }
@@ -43,6 +44,50 @@ workspace "HiveR" "You HRownik" {
                     technology "PostgreSQL"
                     tags "Database"
                 }
+
+                // Authentication microservice
+                authentication = component "Authentication" {
+                    technology "NestJS"
+                    tags "Microservice"
+                }
+
+                authentication_db = component "Authentication Database" {
+                    technology "PostgreSQL"
+                    tags "Database"
+                }
+
+                // Employee time tracking
+                time_tracker = component "Time Tracker" {
+                    technology "NestJS"
+                    tags "Microservice"
+                }
+
+                time_tracker_db = component "Time Tracker Database" {
+                    technology "PostgreSQL"
+                    tags "Database"
+                }
+
+                // Forms
+                forms = component "Forms" {
+                    technology "NestJS"
+                    tags "Microservice"
+                }
+
+                forms_db = component "Forms Database" {
+                    technology "PostgreSQL"
+                    tags "Database"
+                }
+
+                // Managing employees
+                employee_manager = component "Employee Manager" {
+                    technology "NestJS"
+                    tags "Microservice"
+                }
+
+                employee_manager_db = component "Employee Manager Database" {
+                    technology "PostgreSQL"
+                    tags "Database"
+                }
             }
 
             mobile = container "Mobile App"{
@@ -60,24 +105,52 @@ workspace "HiveR" "You HRownik" {
 
         aws_sns = softwareSystem "AWS SNS" "Email and push notification handling."
 
+        ////////// RELATIONS //////////
         // remember, structurizr has implied relationships, you don't have to reference the hiver system and then a container inside, referencing the container only is enough and structurizr handles the rest 
-        mobile -> iot_devices "prompts"
-        mobile -> backend
+
+        ///// actors
         employee -> mobile  
-        tasks -> tasks_db "Saves tasks to"
-        tasks -> bus "Subscribes to"
-        iot_devices -> mobile "responds"
+        employee -> hiver_system "Manages in-office presence using"
         manager -> webApp "Manages workforce using"
         admin -> webApp "Administrates the system through"
-        hiver_system -> aws_sns "Sends emails to users using"
+
+        ///// software system
         aws_sns -> employee "Sends push notifications and emails to"
         aws_sns -> admin "Sends emails to"
-        employee -> hiver_system "Manages in-office presence using"
+        iot_devices -> mobile "responds"
+        hiver_system -> aws_sns "Sends emails to users using"
+
+        ///// webapp
         webApp -> main "Sends events to"
+
+        ///// mobile
+        mobile -> iot_devices "prompts"
+        mobile -> backend
+
+        ///// backend
+        // main
         main -> bus "Sends events to"
         main -> mainDb "Writes to"
-        presence -> presence_db "Saves presence to"
+
+
+        // microservices
+        presence -> presence_db "Writes to"
         presence -> bus "Subscribes to"
+
+        tasks -> tasks_db "Writes to"
+        tasks -> bus "Subscribes to"
+
+        authentication -> authentication_db "Writes to"
+        authentication -> bus "Subscribes to"
+
+        time_tracker -> time_tracker_db "Writes to"
+        time_tracker -> bus "Subscribes to"
+
+        employee_manager -> employee_manager_db "Writes to"
+        employee_manager -> bus "Subscribes to"
+
+        forms -> forms_db "Writes to"
+        forms -> bus "Subscribes to"
     }
 
     // Note to everyone: autolayout is an absolute garbage, don't use it
