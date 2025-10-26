@@ -129,8 +129,8 @@ workspace "HiveR" "You HRownik" {
 
         ///// backend
         // main
-        main -> bus "Sends events to"
         main -> mainDb "Writes to"
+        main -> bus "Subscribes to"
 
 
         // microservices
