@@ -1,0 +1,712 @@
+{
+  "configuration" : { },
+  "description" : "You HRownik",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2025-10-26T19:03:53Z",
+  "model" : {
+    "people" : [ {
+      "description" : "A registered employee of a given company.",
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "Employee",
+      "properties" : {
+        "structurizr.dsl.identifier" : "employee"
+      },
+      "relationships" : [ {
+        "destinationId" : "21",
+        "id" : "25",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "destinationId" : "4",
+        "id" : "26",
+        "linkedRelationshipId" : "25",
+        "sourceId" : "1"
+      }, {
+        "description" : "Manages in-office presence using",
+        "destinationId" : "4",
+        "id" : "27",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "description" : "A registered manager of a given company.",
+      "id" : "2",
+      "location" : "Unspecified",
+      "name" : "Manager",
+      "properties" : {
+        "structurizr.dsl.identifier" : "manager"
+      },
+      "relationships" : [ {
+        "description" : "Manages workforce using",
+        "destinationId" : "22",
+        "id" : "28",
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Manages workforce using",
+        "destinationId" : "4",
+        "id" : "29",
+        "linkedRelationshipId" : "28",
+        "sourceId" : "2"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "description" : "An owner of a given company.",
+      "id" : "3",
+      "location" : "Unspecified",
+      "name" : "Admin",
+      "properties" : {
+        "structurizr.dsl.identifier" : "admin"
+      },
+      "relationships" : [ {
+        "description" : "Administrates the system through",
+        "destinationId" : "22",
+        "id" : "30",
+        "sourceId" : "3",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Administrates the system through",
+        "destinationId" : "4",
+        "id" : "31",
+        "linkedRelationshipId" : "30",
+        "sourceId" : "3"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "components" : [ {
+          "documentation" : { },
+          "id" : "6",
+          "name" : "Bus",
+          "properties" : {
+            "structurizr.dsl.identifier" : "bus"
+          },
+          "tags" : "Element,Component,Bus",
+          "technology" : "Kafka"
+        }, {
+          "documentation" : { },
+          "id" : "7",
+          "name" : "Main",
+          "properties" : {
+            "structurizr.dsl.identifier" : "main"
+          },
+          "relationships" : [ {
+            "description" : "Writes to",
+            "destinationId" : "8",
+            "id" : "42",
+            "sourceId" : "7",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Subscribes to",
+            "destinationId" : "6",
+            "id" : "43",
+            "sourceId" : "7",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component",
+          "technology" : "NestJS"
+        }, {
+          "documentation" : { },
+          "id" : "8",
+          "name" : "Main Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "maindb"
+          },
+          "tags" : "Element,Component,Database",
+          "technology" : "PostgreSQL"
+        }, {
+          "documentation" : { },
+          "id" : "9",
+          "name" : "Presence",
+          "properties" : {
+            "structurizr.dsl.identifier" : "presence"
+          },
+          "relationships" : [ {
+            "description" : "Writes to",
+            "destinationId" : "10",
+            "id" : "44",
+            "sourceId" : "9",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Subscribes to",
+            "destinationId" : "6",
+            "id" : "45",
+            "sourceId" : "9",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Microservice",
+          "technology" : "NestJS"
+        }, {
+          "documentation" : { },
+          "id" : "10",
+          "name" : "Presence Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "presence_db"
+          },
+          "tags" : "Element,Component,Database",
+          "technology" : "PostgreSQL"
+        }, {
+          "documentation" : { },
+          "id" : "11",
+          "name" : "Tasks",
+          "properties" : {
+            "structurizr.dsl.identifier" : "tasks"
+          },
+          "relationships" : [ {
+            "description" : "Writes to",
+            "destinationId" : "12",
+            "id" : "46",
+            "sourceId" : "11",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Subscribes to",
+            "destinationId" : "6",
+            "id" : "47",
+            "sourceId" : "11",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Microservice",
+          "technology" : "NestJS"
+        }, {
+          "documentation" : { },
+          "id" : "12",
+          "name" : "Tasks Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "tasks_db"
+          },
+          "tags" : "Element,Component,Database",
+          "technology" : "PostgreSQL"
+        }, {
+          "documentation" : { },
+          "id" : "13",
+          "name" : "Authentication",
+          "properties" : {
+            "structurizr.dsl.identifier" : "authentication"
+          },
+          "relationships" : [ {
+            "description" : "Writes to",
+            "destinationId" : "14",
+            "id" : "48",
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Subscribes to",
+            "destinationId" : "6",
+            "id" : "49",
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Microservice",
+          "technology" : "NestJS"
+        }, {
+          "documentation" : { },
+          "id" : "14",
+          "name" : "Authentication Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "authentication_db"
+          },
+          "tags" : "Element,Component,Database",
+          "technology" : "PostgreSQL"
+        }, {
+          "documentation" : { },
+          "id" : "15",
+          "name" : "Time Tracker",
+          "properties" : {
+            "structurizr.dsl.identifier" : "time_tracker"
+          },
+          "relationships" : [ {
+            "description" : "Writes to",
+            "destinationId" : "16",
+            "id" : "50",
+            "sourceId" : "15",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Subscribes to",
+            "destinationId" : "6",
+            "id" : "51",
+            "sourceId" : "15",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Microservice",
+          "technology" : "NestJS"
+        }, {
+          "documentation" : { },
+          "id" : "16",
+          "name" : "Time Tracker Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "time_tracker_db"
+          },
+          "tags" : "Element,Component,Database",
+          "technology" : "PostgreSQL"
+        }, {
+          "documentation" : { },
+          "id" : "17",
+          "name" : "Forms",
+          "properties" : {
+            "structurizr.dsl.identifier" : "forms"
+          },
+          "relationships" : [ {
+            "description" : "Writes to",
+            "destinationId" : "18",
+            "id" : "54",
+            "sourceId" : "17",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Subscribes to",
+            "destinationId" : "6",
+            "id" : "55",
+            "sourceId" : "17",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Microservice",
+          "technology" : "NestJS"
+        }, {
+          "documentation" : { },
+          "id" : "18",
+          "name" : "Forms Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "forms_db"
+          },
+          "tags" : "Element,Component,Database",
+          "technology" : "PostgreSQL"
+        }, {
+          "documentation" : { },
+          "id" : "19",
+          "name" : "Employee Manager",
+          "properties" : {
+            "structurizr.dsl.identifier" : "employee_manager"
+          },
+          "relationships" : [ {
+            "description" : "Writes to",
+            "destinationId" : "20",
+            "id" : "52",
+            "sourceId" : "19",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Subscribes to",
+            "destinationId" : "6",
+            "id" : "53",
+            "sourceId" : "19",
+            "tags" : "Relationship"
+          } ],
+          "tags" : "Element,Component,Microservice",
+          "technology" : "NestJS"
+        }, {
+          "documentation" : { },
+          "id" : "20",
+          "name" : "Employee Manager Database",
+          "properties" : {
+            "structurizr.dsl.identifier" : "employee_manager_db"
+          },
+          "tags" : "Element,Component,Database",
+          "technology" : "PostgreSQL"
+        } ],
+        "documentation" : { },
+        "id" : "5",
+        "name" : "Backend",
+        "properties" : {
+          "structurizr.dsl.identifier" : "backend"
+        },
+        "tags" : "Element,Container"
+      }, {
+        "documentation" : { },
+        "id" : "21",
+        "name" : "Mobile App",
+        "properties" : {
+          "structurizr.dsl.identifier" : "mobile"
+        },
+        "relationships" : [ {
+          "description" : "prompts",
+          "destinationId" : "23",
+          "id" : "39",
+          "sourceId" : "21",
+          "tags" : "Relationship"
+        }, {
+          "destinationId" : "5",
+          "id" : "41",
+          "sourceId" : "21",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,Mobile"
+      }, {
+        "documentation" : { },
+        "id" : "22",
+        "name" : "Web App",
+        "properties" : {
+          "structurizr.dsl.identifier" : "webapp"
+        },
+        "relationships" : [ {
+          "description" : "Sends events to",
+          "destinationId" : "7",
+          "id" : "37",
+          "sourceId" : "22",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Sends events to",
+          "destinationId" : "5",
+          "id" : "38",
+          "linkedRelationshipId" : "37",
+          "sourceId" : "22"
+        } ],
+        "tags" : "Element,Container"
+      } ],
+      "description" : "HRownik",
+      "documentation" : { },
+      "id" : "4",
+      "location" : "Unspecified",
+      "name" : "HiveR",
+      "properties" : {
+        "structurizr.dsl.identifier" : "hiver_system"
+      },
+      "relationships" : [ {
+        "description" : "Sends emails to users using",
+        "destinationId" : "24",
+        "id" : "36",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "prompts",
+        "destinationId" : "23",
+        "id" : "40",
+        "linkedRelationshipId" : "39",
+        "sourceId" : "4"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "documentation" : { },
+      "id" : "23",
+      "location" : "Unspecified",
+      "name" : "IoT",
+      "properties" : {
+        "structurizr.dsl.identifier" : "iot_devices"
+      },
+      "relationships" : [ {
+        "description" : "responds",
+        "destinationId" : "21",
+        "id" : "34",
+        "sourceId" : "23",
+        "tags" : "Relationship"
+      }, {
+        "description" : "responds",
+        "destinationId" : "4",
+        "id" : "35",
+        "linkedRelationshipId" : "34",
+        "sourceId" : "23"
+      } ],
+      "tags" : "Element,Software System,ExternalDevice"
+    }, {
+      "description" : "Email and push notification handling.",
+      "documentation" : { },
+      "id" : "24",
+      "location" : "Unspecified",
+      "name" : "AWS SNS",
+      "properties" : {
+        "structurizr.dsl.identifier" : "aws_sns"
+      },
+      "relationships" : [ {
+        "description" : "Sends push notifications and emails to",
+        "destinationId" : "1",
+        "id" : "32",
+        "sourceId" : "24",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Sends emails to",
+        "destinationId" : "3",
+        "id" : "33",
+        "sourceId" : "24",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Software System"
+    } ]
+  },
+  "name" : "HiveR",
+  "properties" : {
+    "structurizr.dsl" : "d29ya3NwYWNlICJIaXZlUiIgIllvdSBIUm93bmlrIiB7CiAgICBtb2RlbCB7CiAgICAgICAgLy8gQWN0b3JzCiAgICAgICAgZW1wbG95ZWUgPSBwZXJzb24gIkVtcGxveWVlIiAiQSByZWdpc3RlcmVkIGVtcGxveWVlIG9mIGEgZ2l2ZW4gY29tcGFueS4iCiAgICAgICAgbWFuYWdlciA9IHBlcnNvbiAiTWFuYWdlciIgIkEgcmVnaXN0ZXJlZCBtYW5hZ2VyIG9mIGEgZ2l2ZW4gY29tcGFueS4iCiAgICAgICAgYWRtaW4gPSBwZXJzb24gIkFkbWluIiAiQW4gb3duZXIgb2YgYSBnaXZlbiBjb21wYW55LiIKCiAgICAgICAgaGl2ZXJfc3lzdGVtID0gc29mdHdhcmVTeXN0ZW0gIkhpdmVSIiAiSFJvd25payIgewogICAgICAgICAgICBiYWNrZW5kID0gY29udGFpbmVyICJCYWNrZW5kIiB7CgogICAgICAgICAgICAgICAgYnVzID0gY29tcG9uZW50ICJCdXMiIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJLYWZrYSIKICAgICAgICAgICAgICAgICAgICB0YWdzICJCdXMiCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgLy8gTWFpbgogICAgICAgICAgICAgICAgbWFpbiA9IGNvbXBvbmVudCAiTWFpbiIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIk5lc3RKUyIKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBtYWluRGIgPSBjb21wb25lbnQgIk1haW4gRGF0YWJhc2UiIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJQb3N0Z3JlU1FMIgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIkRhdGFiYXNlIgogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIC8vIFByZXNlbmNlIG1pY3Jvc2VydmljZQogICAgICAgICAgICAgICAgcHJlc2VuY2UgPSBjb21wb25lbnQgIlByZXNlbmNlIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiTmVzdEpTIgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIk1pY3Jvc2VydmljZSIKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBwcmVzZW5jZV9kYiA9IGNvbXBvbmVudCAiUHJlc2VuY2UgRGF0YWJhc2UiIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJQb3N0Z3JlU1FMIgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIkRhdGFiYXNlIgogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIC8vIFRhc2sgbWljcm9zZXJ2aWNlCiAgICAgICAgICAgICAgICB0YXNrcyA9IGNvbXBvbmVudCAiVGFza3MiIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJOZXN0SlMiCiAgICAgICAgICAgICAgICAgICAgdGFncyAiTWljcm9zZXJ2aWNlIgogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIHRhc2tzX2RiID0gY29tcG9uZW50ICJUYXNrcyBEYXRhYmFzZSIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIlBvc3RncmVTUUwiCiAgICAgICAgICAgICAgICAgICAgdGFncyAiRGF0YWJhc2UiCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgLy8gQXV0aGVudGljYXRpb24gbWljcm9zZXJ2aWNlCiAgICAgICAgICAgICAgICBhdXRoZW50aWNhdGlvbiA9IGNvbXBvbmVudCAiQXV0aGVudGljYXRpb24iIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJOZXN0SlMiCiAgICAgICAgICAgICAgICAgICAgdGFncyAiTWljcm9zZXJ2aWNlIgogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIGF1dGhlbnRpY2F0aW9uX2RiID0gY29tcG9uZW50ICJBdXRoZW50aWNhdGlvbiBEYXRhYmFzZSIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIlBvc3RncmVTUUwiCiAgICAgICAgICAgICAgICAgICAgdGFncyAiRGF0YWJhc2UiCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgLy8gRW1wbG95ZWUgdGltZSB0cmFja2luZwogICAgICAgICAgICAgICAgdGltZV90cmFja2VyID0gY29tcG9uZW50ICJUaW1lIFRyYWNrZXIiIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJOZXN0SlMiCiAgICAgICAgICAgICAgICAgICAgdGFncyAiTWljcm9zZXJ2aWNlIgogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIHRpbWVfdHJhY2tlcl9kYiA9IGNvbXBvbmVudCAiVGltZSBUcmFja2VyIERhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiUG9zdGdyZVNRTCIKICAgICAgICAgICAgICAgICAgICB0YWdzICJEYXRhYmFzZSIKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICAvLyBGb3JtcwogICAgICAgICAgICAgICAgZm9ybXMgPSBjb21wb25lbnQgIkZvcm1zIiB7CiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiTmVzdEpTIgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIk1pY3Jvc2VydmljZSIKICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICBmb3Jtc19kYiA9IGNvbXBvbmVudCAiRm9ybXMgRGF0YWJhc2UiIHsKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJQb3N0Z3JlU1FMIgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIkRhdGFiYXNlIgogICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgIC8vIE1hbmFnaW5nIGVtcGxveWVlcwogICAgICAgICAgICAgICAgZW1wbG95ZWVfbWFuYWdlciA9IGNvbXBvbmVudCAiRW1wbG95ZWUgTWFuYWdlciIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIk5lc3RKUyIKICAgICAgICAgICAgICAgICAgICB0YWdzICJNaWNyb3NlcnZpY2UiCiAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgZW1wbG95ZWVfbWFuYWdlcl9kYiA9IGNvbXBvbmVudCAiRW1wbG95ZWUgTWFuYWdlciBEYXRhYmFzZSIgewogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIlBvc3RncmVTUUwiCiAgICAgICAgICAgICAgICAgICAgdGFncyAiRGF0YWJhc2UiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIG1vYmlsZSA9IGNvbnRhaW5lciAiTW9iaWxlIEFwcCJ7CiAgICAgICAgICAgICAgICB0YWdzICJNb2JpbGUiCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIHdlYkFwcCA9IGNvbnRhaW5lciAiV2ViIEFwcCIgewoKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgaW90X2RldmljZXMgPSBzb2Z0d2FyZVN5c3RlbSAiSW9UIiB7CiAgICAgICAgICAgIHRhZ3MgIkV4dGVybmFsRGV2aWNlIgogICAgICAgIH0KCiAgICAgICAgYXdzX3NucyA9IHNvZnR3YXJlU3lzdGVtICJBV1MgU05TIiAiRW1haWwgYW5kIHB1c2ggbm90aWZpY2F0aW9uIGhhbmRsaW5nLiIKCiAgICAgICAgLy8vLy8vLy8vLyBSRUxBVElPTlMgLy8vLy8vLy8vLwogICAgICAgIC8vIHJlbWVtYmVyLCBzdHJ1Y3R1cml6ciBoYXMgaW1wbGllZCByZWxhdGlvbnNoaXBzLCB5b3UgZG9uJ3QgaGF2ZSB0byByZWZlcmVuY2UgdGhlIGhpdmVyIHN5c3RlbSBhbmQgdGhlbiBhIGNvbnRhaW5lciBpbnNpZGUsIHJlZmVyZW5jaW5nIHRoZSBjb250YWluZXIgb25seSBpcyBlbm91Z2ggYW5kIHN0cnVjdHVyaXpyIGhhbmRsZXMgdGhlIHJlc3QgCgogICAgICAgIC8vLy8vIGFjdG9ycwogICAgICAgIGVtcGxveWVlIC0+IG1vYmlsZSAgCiAgICAgICAgZW1wbG95ZWUgLT4gaGl2ZXJfc3lzdGVtICJNYW5hZ2VzIGluLW9mZmljZSBwcmVzZW5jZSB1c2luZyIKICAgICAgICBtYW5hZ2VyIC0+IHdlYkFwcCAiTWFuYWdlcyB3b3JrZm9yY2UgdXNpbmciCiAgICAgICAgYWRtaW4gLT4gd2ViQXBwICJBZG1pbmlzdHJhdGVzIHRoZSBzeXN0ZW0gdGhyb3VnaCIKCiAgICAgICAgLy8vLy8gc29mdHdhcmUgc3lzdGVtCiAgICAgICAgYXdzX3NucyAtPiBlbXBsb3llZSAiU2VuZHMgcHVzaCBub3RpZmljYXRpb25zIGFuZCBlbWFpbHMgdG8iCiAgICAgICAgYXdzX3NucyAtPiBhZG1pbiAiU2VuZHMgZW1haWxzIHRvIgogICAgICAgIGlvdF9kZXZpY2VzIC0+IG1vYmlsZSAicmVzcG9uZHMiCiAgICAgICAgaGl2ZXJfc3lzdGVtIC0+IGF3c19zbnMgIlNlbmRzIGVtYWlscyB0byB1c2VycyB1c2luZyIKCiAgICAgICAgLy8vLy8gd2ViYXBwCiAgICAgICAgd2ViQXBwIC0+IG1haW4gIlNlbmRzIGV2ZW50cyB0byIKCiAgICAgICAgLy8vLy8gbW9iaWxlCiAgICAgICAgbW9iaWxlIC0+IGlvdF9kZXZpY2VzICJwcm9tcHRzIgogICAgICAgIG1vYmlsZSAtPiBiYWNrZW5kCgogICAgICAgIC8vLy8vIGJhY2tlbmQKICAgICAgICAvLyBtYWluCiAgICAgICAgbWFpbiAtPiBtYWluRGIgIldyaXRlcyB0byIKICAgICAgICBtYWluIC0+IGJ1cyAiU3Vic2NyaWJlcyB0byIKCgogICAgICAgIC8vIG1pY3Jvc2VydmljZXMKICAgICAgICBwcmVzZW5jZSAtPiBwcmVzZW5jZV9kYiAiV3JpdGVzIHRvIgogICAgICAgIHByZXNlbmNlIC0+IGJ1cyAiU3Vic2NyaWJlcyB0byIKCiAgICAgICAgdGFza3MgLT4gdGFza3NfZGIgIldyaXRlcyB0byIKICAgICAgICB0YXNrcyAtPiBidXMgIlN1YnNjcmliZXMgdG8iCgogICAgICAgIGF1dGhlbnRpY2F0aW9uIC0+IGF1dGhlbnRpY2F0aW9uX2RiICJXcml0ZXMgdG8iCiAgICAgICAgYXV0aGVudGljYXRpb24gLT4gYnVzICJTdWJzY3JpYmVzIHRvIgoKICAgICAgICB0aW1lX3RyYWNrZXIgLT4gdGltZV90cmFja2VyX2RiICJXcml0ZXMgdG8iCiAgICAgICAgdGltZV90cmFja2VyIC0+IGJ1cyAiU3Vic2NyaWJlcyB0byIKCiAgICAgICAgZW1wbG95ZWVfbWFuYWdlciAtPiBlbXBsb3llZV9tYW5hZ2VyX2RiICJXcml0ZXMgdG8iCiAgICAgICAgZW1wbG95ZWVfbWFuYWdlciAtPiBidXMgIlN1YnNjcmliZXMgdG8iCgogICAgICAgIGZvcm1zIC0+IGZvcm1zX2RiICJXcml0ZXMgdG8iCiAgICAgICAgZm9ybXMgLT4gYnVzICJTdWJzY3JpYmVzIHRvIgogICAgfQoKICAgIC8vIE5vdGUgdG8gZXZlcnlvbmU6IGF1dG9sYXlvdXQgaXMgYW4gYWJzb2x1dGUgZ2FyYmFnZSwgZG9uJ3QgdXNlIGl0CiAgICB2aWV3cyB7CiAgICAgICAgc3lzdGVtQ29udGV4dCBoaXZlcl9zeXN0ZW0gIkRpYWdyYW0xIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgIH0KCiAgICAgICAgY29udGFpbmVyIGhpdmVyX3N5c3RlbSAiRGlhZ3JhbTIiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgfQoKICAgICAgICBjb21wb25lbnQgYmFja2VuZCAiRGlhZ3JhbTMiewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIkVsZW1lbnQiewogICAgICAgICAgICAgICAgY29sb3IgIzA3NzNhZgogICAgICAgICAgICAgICAgc3Ryb2tlICMwNzczYWYKICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoIDcKICAgICAgICAgICAgfQoKICAgICAgICAgICAgZWxlbWVudCAiUGVyc29uIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBwZXJzb24KICAgICAgICAgICAgfQoKICAgICAgICAgICAgZWxlbWVudCAiQm91bmRhcnkiIHsKICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoIDUKICAgICAgICAgICAgfQoKICAgICAgICAgICAgcmVsYXRpb25zaGlwICJSZWxhdGlvbnNoaXAiIHsKICAgICAgICAgICAgICAgIHRoaWNrbmVzcyA1CiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlInsKICAgICAgICAgICAgICAgIHNoYXBlIGN5bGluZGVyCiAgICAgICAgICAgIH0KCiAgICAgICAgICAgIGVsZW1lbnQgIk1pY3Jvc2VydmljZSIgewogICAgICAgICAgICAgICAgc2hhcGUgaGV4YWdvbgogICAgICAgICAgICB9CgogICAgICAgICAgICBlbGVtZW50ICJCdXMiIHsKICAgICAgICAgICAgICAgIHNoYXBlIHBpcGUKICAgICAgICAgICAgfQoKICAgICAgICAgICAgZWxlbWVudCAiRXh0ZXJuYWxEZXZpY2UiIHsKICAgICAgICAgICAgICAgIHNoYXBlIGZvbGRlcgogICAgICAgICAgICB9CgogICAgICAgICAgICBlbGVtZW50ICJNb2JpbGUiIHsKICAgICAgICAgICAgICAgIHNoYXBlIE1vYmlsZURldmljZVBvcnRyYWl0CiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0="
+  },
+  "views" : {
+    "componentViews" : [ {
+      "containerId" : "5",
+      "dimensions" : {
+        "height" : 2871,
+        "width" : 4990
+      },
+      "elements" : [ {
+        "id" : "6",
+        "x" : 2150,
+        "y" : 1090
+      }, {
+        "id" : "7",
+        "x" : 2160,
+        "y" : 615
+      }, {
+        "id" : "8",
+        "x" : 1445,
+        "y" : 615
+      }, {
+        "id" : "9",
+        "x" : 882,
+        "y" : 1578
+      }, {
+        "id" : "10",
+        "x" : 885,
+        "y" : 2150
+      }, {
+        "id" : "11",
+        "x" : 3530,
+        "y" : 1578
+      }, {
+        "id" : "12",
+        "x" : 3535,
+        "y" : 2150
+      }, {
+        "id" : "13",
+        "x" : 3002,
+        "y" : 1578
+      }, {
+        "id" : "14",
+        "x" : 3005,
+        "y" : 2150
+      }, {
+        "id" : "15",
+        "x" : 2472,
+        "y" : 1578
+      }, {
+        "id" : "16",
+        "x" : 2475,
+        "y" : 2150
+      }, {
+        "id" : "17",
+        "x" : 1942,
+        "y" : 1578
+      }, {
+        "id" : "18",
+        "x" : 1945,
+        "y" : 2150
+      }, {
+        "id" : "19",
+        "x" : 1412,
+        "y" : 1578
+      }, {
+        "id" : "20",
+        "x" : 1415,
+        "y" : 2150
+      }, {
+        "id" : "22",
+        "x" : 2155,
+        "y" : 115
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "key" : "Diagram3",
+      "order" : 3,
+      "relationships" : [ {
+        "id" : "37"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "46"
+      }, {
+        "id" : "47"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "49"
+      }, {
+        "id" : "50"
+      }, {
+        "id" : "51"
+      }, {
+        "id" : "52"
+      }, {
+        "id" : "53"
+      }, {
+        "id" : "54"
+      }, {
+        "id" : "55"
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "Diagram3",
+      "metadataSymbols" : "SquareBrackets",
+      "styles" : {
+        "elements" : [ {
+          "color" : "#0773af",
+          "stroke" : "#0773af",
+          "strokeWidth" : 7,
+          "tag" : "Element"
+        }, {
+          "shape" : "Person",
+          "tag" : "Person"
+        }, {
+          "strokeWidth" : 5,
+          "tag" : "Boundary"
+        }, {
+          "shape" : "Cylinder",
+          "tag" : "Database"
+        }, {
+          "shape" : "Hexagon",
+          "tag" : "Microservice"
+        }, {
+          "shape" : "Pipe",
+          "tag" : "Bus"
+        }, {
+          "shape" : "Folder",
+          "tag" : "ExternalDevice"
+        }, {
+          "shape" : "MobileDevicePortrait",
+          "tag" : "Mobile"
+        } ],
+        "relationships" : [ {
+          "tag" : "Relationship",
+          "thickness" : 5
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "21",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "22",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "23",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "Diagram2",
+      "order" : 2,
+      "paperSize" : "A5_Landscape",
+      "relationships" : [ {
+        "id" : "25"
+      }, {
+        "id" : "28"
+      }, {
+        "id" : "30"
+      }, {
+        "id" : "34",
+        "vertices" : [ {
+          "x" : 81,
+          "y" : 81
+        } ]
+      }, {
+        "id" : "38"
+      }, {
+        "id" : "39",
+        "vertices" : [ {
+          "x" : 293,
+          "y" : 293
+        } ]
+      }, {
+        "id" : "41"
+      } ],
+      "softwareSystemId" : "4"
+    } ],
+    "systemContextViews" : [ {
+      "dimensions" : {
+        "height" : 1925,
+        "width" : 3016
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 350,
+        "y" : 730
+      }, {
+        "id" : "2",
+        "x" : 360,
+        "y" : 175
+      }, {
+        "id" : "3",
+        "x" : 355,
+        "y" : 1390
+      }, {
+        "id" : "4",
+        "x" : 1150,
+        "y" : 805
+      }, {
+        "id" : "23",
+        "x" : 1155,
+        "y" : 215
+      }, {
+        "id" : "24",
+        "x" : 1160,
+        "y" : 1480
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "Diagram1",
+      "order" : 1,
+      "paperSize" : "A4_Landscape",
+      "relationships" : [ {
+        "id" : "26",
+        "vertices" : [ {
+          "x" : 957,
+          "y" : 1092
+        } ]
+      }, {
+        "id" : "27",
+        "vertices" : [ {
+          "x" : 967,
+          "y" : 792
+        } ]
+      }, {
+        "id" : "29"
+      }, {
+        "id" : "31"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "35",
+        "vertices" : [ {
+          "x" : 1530,
+          "y" : 665
+        } ]
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "40",
+        "vertices" : [ {
+          "x" : 1220,
+          "y" : 670
+        } ]
+      } ],
+      "softwareSystemId" : "4"
+    } ]
+  }
+}
