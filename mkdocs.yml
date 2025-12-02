@@ -1,0 +1,99 @@
+site_name: HiveR Documentation
+site_description: Documentation for the HiveR microservice system, including architecture, mobile app, web app, and infrastructure
+site_author: HiveR Team
+repo_name: ZPIsaniNaSukces/docs-hiver
+repo_url: https://github.com/ZPIsaniNaSukces/docs-hiver
+
+theme:
+  name: material
+  palette:
+    # Light mode
+    - scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+plugins:
+  - search
+  - mermaid2
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Architecture:
+      - Overview: architecture/overview.md
+      - System Context: architecture/system-context.md
+      - Containers: architecture/containers.md
+      - Components: architecture/components.md
+  - Backend:
+      - Overview: backend/overview.md
+      - Main Service: backend/main.md
+      - Presence Microservice: backend/presence.md
+      - Tasks Microservice: backend/tasks.md
+      - Message Bus: backend/bus.md
+  - Mobile App:
+      - Overview: mobile/overview.md
+      - Features: mobile/features.md
+      - IoT Integration: mobile/iot.md
+  - Web App:
+      - Overview: webapp/overview.md
+      - Management Features: webapp/management.md
+      - Admin Panel: webapp/admin.md
+  - Infrastructure:
+      - Overview: infrastructure/overview.md
+      - Databases: infrastructure/databases.md
+      - AWS Services: infrastructure/aws.md
+      - Deployment: infrastructure/deployment.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ZPIsaniNaSukces/docs-hiver
